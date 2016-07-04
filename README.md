@@ -1,9 +1,9 @@
 ## TODO
 
- - [ ] `install.sh`
- - [x] `.vimrc`
- - [ ] `.zshrc`
- - [ ] `functions.zsh`
+ - [ ] install.sh
+ - [x] .vimrc
+ - [x] .zshrc
+ - [ ] functions.zsh
 
 ## Installation
 
