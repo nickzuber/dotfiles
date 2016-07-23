@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEV_MODE='true'
+#DEV_MODE='true'
 now=$(date +"%T")
 
 if [[ ! -z "$DEV_MODE" ]]; then
@@ -9,7 +9,7 @@ if [[ ! -z "$DEV_MODE" ]]; then
     echo "[$now] Creating development directory..."
     mkdir $HOME/_dotfiles_testing
   else
-    echo "[$now] Development directory already exists, continuing without errors"
+    echo "[$now] Development directory already exists, continuing without errors."
   fi
   ROOT=$HOME/_dotfiles_testing
 else
@@ -18,6 +18,7 @@ fi
 
 OLD_DOTFILES=$ROOT/old_dotfiles
 DOTFILES=$ROOT/dotfiles
+
 
 FILES=(
   'tmux.config'
@@ -44,14 +45,19 @@ function symlink() {
   echo "[$now] Linking $source to $dest..."
 
   if [ -e $dest ]; then
-    echo "[$now] $dest already exists, moving to $OLD_DOTFILES"
-    #mv $dest $OLD_DOTFILES
+    echo "[$now] $dest already exists, moving to $OLD_DOTFILES before process continues."
+    if [[ ! -d $OLD_DOTFILES ]]; then
+      mkdir $OLD_DOTFILES
+    fi
+    mv $dest "$OLD_DOTFILES/$dest"
   fi
-  #ln -s $source $dest
+  mv $source $dest
+
+  echo "[$now] Succesfully linked $dest!"
 }
 
 for file in "${FILES[@]}"; do
   baseName=$(basename "$file")
-  symlink $DOTFILES/$filename $ROOT/.$baseName
+  symlink $DOTFILES/$file $ROOT/.$baseName
 done
 

@@ -57,5 +57,5 @@ $ ./install.sh
 ```
 $ git clone git@github.com:nickzuber/dotfiles.git
 $ cd dotfiles
-$ ./install.sh
+$ sh install.sh
 ```
