@@ -11,6 +11,8 @@ alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles No; kil
 alias reload="exec $SHELL -l"
 alias src="source ~/.zshrc"
 
+source ~/functions.zsh
+tmux source ~/.tmux.conf
 
 # ZSH Config
 

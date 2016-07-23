@@ -1,10 +1,10 @@
 set nocompatible
+set ma                                              " Allow NERDTree and others modify buffer
 
 " Themes & Colours
 set t_Co=256
 syntax enable
 set encoding=utf-8
-set guifont=Literation\ Mono\ Powerline\ 10         " Don't think this works or CAN work in regular vim"
 
 " Disable annoying beep
 set visualbell
@@ -50,16 +50,13 @@ call vundle#begin()
 Plugin 'https://github.com/gmarik/Vundle.vim'       " Let Vundle manage itself
 Plugin 'scrooloose/nerdtree'                        " Tree Display for file system
 Plugin 'airblade/vim-gitgutter'                     " Git diff gutter
-Plugin 'ctrlpvim/ctrlp.vim'                         " Fuzzy find files
+Plugin 'vim-scripts/FuzzyFinder'                    " Fuzzy find files
 Plugin 'vim-airline/vim-airline'                    " Better status bar
 Plugin 'vim-airline/vim-airline-themes'             " Status bar themes
 Plugin 'jiangmiao/auto-pairs'                       " Automatically pair braces, etc
 Plugin 'tpope/vim-fugitive'                         " Git support
 Plugin 'tpope/vim-surround'                         " Surround selections with characters
 Plugin 'pangloss/vim-javascript'                    " JS syntax and indent plugins
-Plugin 'haya14busa/incsearch.vim'                   " Better searching
-Plugin 'haya14busa/incsearch-fuzzy.vim'             " Better searching w/ fuzzyfind
-Plugin 'majutsushi/tagbar'                          " Tagbar
 Plugin 'scrooloose/syntastic'                       " Syntax helpers
 Plugin 'ternjs/tern_for_vim'                        " Support for Javascript autocomplete
 Plugin 'evanmiller/nginx-vim-syntax'                " Syntax support from nginx configs
@@ -124,36 +121,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 
 """""""""""""""
-" TagBar
+" Searching
 """""""""""""""
 
-" Set ctags executable for JS
-let g:tagbar_type_javascript = {
-\ 'ctagsbin': '$NVM_BIN/jsctags'
-\ }
 
-" Toggle TagBar
-map <S-t> :TagbarToggle<CR>
 
 " Searching
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-nnoremap <Esc><Esc> :nohlsearch<CR>
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
+"nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " Fuzzy searching
-map f/ <Plug>(incsearch-fuzzy-/)
-map f? <Plug>(incsearch-fuzzy-?)
-map fg/ <Plug>(incsearch-fuzzy-stay)
+"map f/ <Plug>(incsearch-fuzzy-/)
+"map f? <Plug>(incsearch-fuzzy-?)
+"map fg/ <Plug>(incsearch-fuzzy-stay)
 
-" Makes the current vsplit window wider by 10 characters
-map <leader><Right> 10<C-W>>
-" Makes the current vsplit window smaller by 10 characters
-map <leader><Left> 10<C-W><
-" Makes the current hsplit window taller by 10 characters
-map <leader><Up> 10<C-W>+
-" Makes the current hsplit window shorter by 10 characters
-map <leader><Down> 10<C-W>-
+
 
 " Center matched search terms
 map N Nzz
