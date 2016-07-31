@@ -12,8 +12,17 @@ function v {
   fi
 }
 
+# clean screen restart
+function cls {
+	clear && reload
+}
+
 # cd into directory and display files
 function cdl {
   cd "$@" && ls 
+}
+
+function google {
+	/usr/bin/open -a "/Applications/Google Chrome.app" "https://duckduckgo.com/?q=${*}"
 }
 
