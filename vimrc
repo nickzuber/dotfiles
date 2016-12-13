@@ -36,7 +36,7 @@ set timeoutlen=1000 ttimeoutlen=0
 set tabstop=2
 set shiftwidth=2
 set softtabstop=0 noexpandtab
-set smarttab                                         " Smartly indent
+"set smarttab                                         " Smartly indent
 set autoindent
 set list listchars=tab:»·,trail:·,nbsp:·             " Display extra whitespace
 filetype indent on                                   " Enable smart indents
@@ -282,4 +282,3 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
 hi link NERDTreeDir Normal
 hi link NERDTreeDirSlash Normal
-
