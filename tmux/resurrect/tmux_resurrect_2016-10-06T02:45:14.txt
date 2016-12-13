@@ -1,0 +1,14 @@
+pane	0	1	:..portant Files	1	:*	1	:/Users/nick/Desktop/Important Files	1	zsh	:
+pane	1	1	:..nickzuber.com	1	:*	1	:/Users/nick/projects/ssg-nickzuber.com	1	zsh	:
+pane	1	1	:..nickzuber.com	1	:*	2	:/Users/nick/projects/ssg-nickzuber.com	0	node	:npm   
+pane	2	1	:npm	1	:*	1	:/Users/nick/projects/mark-up	0	zsh	:
+pane	2	1	:npm	1	:*	2	:/Users/nick/projects/mark-up	1	node	:npm   
+pane	2	1	:npm	1	:*	3	:/Users/nick/projects/mark-up	0	node	:npm   
+pane	3	1	:~	1	:*	1	:/Users/nick	1	zsh	:
+pane	3	1	:~	1	:*	2	:	0	zsh	:top
+pane	3	1	:~	1	:*	3	:/Users/nick	0	htop	:htop
+window	0	1	1	:*	c6fd,120x28,0,0,0
+window	1	1	1	:*	5124,78x58,0,0[78x29,0,0,1,78x28,0,30,2]
+window	2	1	1	:*	0122,86x58,0,0[86x29,0,0,3,86x28,0,30{43x28,0,30,4,42x28,44,30,5}]
+window	3	1	1	:*	6612,238x58,0,0{119x58,0,0[119x9,0,0,6,119x48,0,10,9],118x58,120,0,8}
+state	3	
