@@ -13,6 +13,7 @@ set visualbell
 set number                                          " Show line numbers
 set laststatus=2                                    " Always display the status line
 set noshowmode                                      " Hide default mode indicator (powerline instead)
+set tw=0                                            " Disables new line break after n characters
 
 " Disable vim backups
 set nobackup
@@ -24,19 +25,17 @@ set wildmode=list:longest,full
 
 " Enable mouse
 set ttyfast
-"set mouse=a
+set mouse=a
 
 " Repond to keys faster - fix for powerline
 set timeoutlen=1000 ttimeoutlen=0
 
 " Text Formatting
-"set tabstop=2                                        " A tab is 2 spaces
-"set expandtab                                        " Use spaces instead of tabs
-"set shiftwidth=2                                     " Number of spaces for autoindenting
-set tabstop=2
-set shiftwidth=2
+set tabstop=2                                        " A tab is 2 spaces
+set expandtab                                        " Use spaces instead of tabs
+set shiftwidth=2                                     " Number of spaces for autoindenting
 set softtabstop=0 noexpandtab
-"set smarttab                                         " Smartly indent
+set smarttab                                         " Smartly indent
 set autoindent
 set list listchars=tab:»·,trail:·,nbsp:·             " Display extra whitespace
 filetype indent on                                   " Enable smart indents
@@ -55,7 +54,7 @@ Plugin 'airblade/vim-gitgutter'                     " Git diff gutter
 Plugin 'vim-scripts/FuzzyFinder'                    " Fuzzy find files
 Plugin 'vim-airline/vim-airline'                    " Better status bar
 Plugin 'vim-airline/vim-airline-themes'             " Status bar themes
-Plugin 'jiangmiao/auto-pairs'                       " Automatically pair braces, etc
+"Plugin 'jiangmiao/auto-pairs'                       " Automatically pair braces, etc
 Plugin 'tpope/vim-fugitive'                         " Git support
 Plugin 'tpope/vim-surround'                         " Surround selections with characters
 Plugin 'pangloss/vim-javascript'                    " JS syntax and indent plugins
@@ -181,7 +180,12 @@ let g:colors_name = "predawn"
 
 " Set the colour of tab char with SpecialKey line ~226
 " ctermfg is colour of characters
+" Also, since I changed the black to be a gray in the preferences, 
+" the new colour for 'black' or 'invisible' is ctermfg=236
 set list listchars=tab:›·
+
+" Syntax errors
+hi SpellBad ctermfg=NONE ctermbg=167 cterm=NONE guifg=#cf5340 guibg=NONE gui=NONE
 
 hi Cursor ctermfg=235 ctermbg=209 cterm=NONE guifg=#282828 guibg=#f18260 gui=NONE
 hi Visual ctermfg=NONE ctermbg=239 cterm=NONE guifg=NONE guibg=#4c4c4c gui=NONE
@@ -224,7 +228,7 @@ hi Number ctermfg=228 ctermbg=NONE cterm=NONE guifg=#ecec89 guibg=NONE gui=NONE
 hi Operator ctermfg=215 ctermbg=NONE cterm=NONE guifg=#f49d62 guibg=NONE gui=NONE
 hi PreProc ctermfg=215 ctermbg=NONE cterm=NONE guifg=#f49d62 guibg=NONE gui=NONE
 hi Special ctermfg=231 ctermbg=NONE cterm=NONE guifg=#f1f1f1 guibg=NONE gui=NONE
-hi SpecialKey ctermfg=0 ctermbg=NONE cterm=NONE guifg=#bddcdc guibg=NONE gui=NONE
+hi SpecialKey ctermfg=236 ctermbg=NONE cterm=NONE guifg=#bddcdc guibg=NONE gui=NONE
 hi Statement ctermfg=215 ctermbg=NONE cterm=NONE guifg=#f49d62 guibg=NONE gui=NONE
 hi StorageClass ctermfg=228 ctermbg=NONE cterm=NONE guifg=#ecec89 guibg=NONE gui=NONE
 hi String ctermfg=152 ctermbg=NONE cterm=NONE guifg=#bddcdc guibg=NONE gui=NONE
@@ -282,3 +286,47 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
 hi link NERDTreeDir Normal
 hi link NERDTreeDirSlash Normal
+
+" MANUAL LINKING FOR MERLIN STUFF
+" https://opam.ocaml.org/blog/turn-your-editor-into-an-ocaml-ide/
+" BEGIN
+
+set rtp+=~/cloned-repositories/ocp-indent-vim
+
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" END
+
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
