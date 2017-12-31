@@ -1,17 +1,49 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontSize": 10,
+    "editor.fontSize": 10.5,
     "workbench.colorTheme": "Predawn",
-    "editor.fontFamily": "Meslo LG M DZ for Powerline",
+    "editor.fontFamily": "Fira Code, Hasklig, Hack, Meslo LG M DZ for Powerline",
     "terminal.integrated.fontSize": 10,
+    "editor.fontLigatures": true,
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Fira Code, Hack, Meslo LG M DZ for Powerline",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#333333",
         "statusBar.noFolderBackground": "#333333",
-        "statusBar.debuggingBackground": "#333333"
+        "statusBar.debuggingBackground": "#333333",
+        "statusBar.background": "#333333",
+        "statusBar.foreground": "#9c9c9c",
+        "editor.background": "#2d2d2d",
+        "editor.selectionHighlightBackground": "#ede48033",
+        "editor.selectionBackground": "#ede48066"
     },
-    "workbench.welcome.enabled": false,
     "editor.autoClosingBrackets": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "typescript.check.npmIsInstalled": false,
+    "files.associations": {
+		"*.ml": "ocaml",
+		"*.mli": "ocaml",
+        "*.mll": "ocaml"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/*.pyc": true,
+        "**/.DS_Store": true
+    },
+    "python.linting.enabledWithoutWorkspace": false,
+    "editor.minimap.enabled": false,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "blink",
+    "ocaml.merlinPath": "/Users/nick/.opam/system/bin/ocamlmerlin",
+    "reason.formatOnSave": true,
+    "reason.bsb.enabled": true,
+    "editor.tabSize": 2,
+    "importCost.smallPackageSize": 100,
+    "ocaml.replPath.unix": "utop",
+    "ocaml.lintOnSave": true,
+    "extensions.ignoreRecommendations": false,
+    "workbench.iconTheme": "vs-minimal"
 }

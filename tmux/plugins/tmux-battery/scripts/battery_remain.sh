@@ -17,21 +17,21 @@ pmset_battery_remaining_time() {
 	batteryPercentageNumber=${batteryPercentageString::${#batteryPercentageString}-1}
 
 	if [ $batteryPercentageNumber -gt 88 ]; then
-		printf "#[fg=#15ca6e]▁▂▃▄▅▆▇█"
+		printf "#[fg=#15ca6e]■■■■■■■■"
 	elif [ $batteryPercentageNumber -gt 76 ]; then
-		printf "#[fg=#15ca6e]▁▂▃▄▅▆▇#[fg=#666666]█"
+		printf "#[fg=#15ca6e]■■■■■■■#[fg=#666666]■"
 	elif [ $batteryPercentageNumber -gt 64 ]; then
-		printf "#[fg=#15ca6e]▁▂▃▄▅▆#[fg=#666666]▇█"
+		printf "#[fg=#15ca6e]■■■■■■#[fg=#666666]■■"
 	elif [ $batteryPercentageNumber -gt 52 ]; then
-		printf "#[fg=#ffeb3b]▁▂▃▄▅#[fg=#666666]▆▇█"
+		printf "#[fg=#ffeb3b]■■■■■#[fg=#666666]■■■"
 	elif [ $batteryPercentageNumber -gt 40 ]; then
-		printf "#[fg=#ffeb3b]▁▂▃▄#[fg=#666666]▅▆▇█"
+		printf "#[fg=#ffeb3b]■■■■#[fg=#666666]■■■■"
 	elif [ $batteryPercentageNumber -gt 28 ]; then
-		printf "#[fg=#f7b72b]▁▂▃#[fg=#666666]▄▅▆▇█"
+		printf "#[fg=#f7b72b]■■■#[fg=#666666]■■■■■"
 	elif [ $batteryPercentageNumber -gt 15 ]; then
-		printf "#[fg=#f87e78]▁▂#[fg=#666666]▃▄▅▆▇█"
+		printf "#[fg=#f87e78]■■#[fg=#666666]■■■■■■"
 	else
-		printf "#[fg=#f87e78]▁#[fg=#666666]▂▃▄▅▆▇█"
+		printf "#[fg=#f87e78]■#[fg=#666666]■■■■■■■"
 	fi
 	printf "#[default]"
 

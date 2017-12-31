@@ -5,10 +5,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 10.5,
+    fontSize: 11,
 
     // font family with optional fallbacks
-    fontFamily: '"Meslo LG M for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Fira Code, Hasklig, Monaco, "Meslo LG M for Powerline"',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: '#96969b',
@@ -20,34 +20,47 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#f8f8f8',
+    foregroundColor: '#f1f1f1',
 
     // terminal background color
-    backgroundColor: '#272733',
+    // backgroundColor: '#272733',
+    backgroundColor: '#272734',
 
     // border color (window, tabs)
-    borderColor: '#272733',
+    borderColor: '#272734',
 
     // custom css to embed in the main window
     css: `
       .tab_tab {
-        background: #353546 !important;
+        background: #263c46 !important;
         transition: all 150ms cubic-bezier(0.4, 0, 1, 1);
       }
       .tab_tab:hover {
-        background: #303042 !important;
+        background: #1a2b33 !important;
       }
       
       .tab_active {
-        background: #272733 !important;
+        background: #1a2b33 !important;
       }
       .tab_active:hover {
-        background: #272733 !important;
+        background: #1a2b33 important;
       }
     `,
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: `
+      * {
+        -webkit-font-feature-settings: "liga" on, "calt" on, "dlig" on !important;      
+        text-rendering: optimizeLegibility !important;
+      }
+      .cursor-node {
+        width: .35rem !important;
+      }
+      `,
+
+    // custom padding
+    padding: '.5rem',
+    // padding: '12px 14px',
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -57,9 +70,6 @@ module.exports = {
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` on windows and Linux (ignored on macOS)
     showWindowControls: '',
-
-    // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -73,7 +83,7 @@ module.exports = {
       magenta: '#fd6dc0',
       cyan: '#9dedfd',
       white: '#f8f8f8',
-      lightBlack: '#979899',
+      lightBlack: '#525354',
       lightRed: '#fc5d5b',
       lightGreen: '#62f592',
       lightYellow: '#f3f8a2',
@@ -102,30 +112,15 @@ module.exports = {
 
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false
-
-    // if true, on right click selected text will be copied or pasted if no
-    // selection is present (true by default on Windows)
-    // quickEdit: true
-
-    // URL to custom bell
-    // bellSoundURL: 'http://example.com/bell.mp3',
-
-    // for advanced config flags please refer to https://hyper.is/#cfg
   },
-
-  // a list of plugins to fetch and install from npm
-  // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
   plugins: [
     'hyper-blink',
     'hypercwd',
     'hyperterm-dibdabs',
     'hyperterm-tabs',
     'hyperterm-close-on-left',
-    'hyper-hide-title'
+//	'hyper-hide-title',
+		'hyper-pane'
   ],
 
   // in development, you can create a directory under
