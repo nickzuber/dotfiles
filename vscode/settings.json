@@ -1,49 +1,332 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontSize": 10.5,
-    "workbench.colorTheme": "Predawn",
-    "editor.fontFamily": "Fira Code, Hasklig, Hack, Meslo LG M DZ for Powerline",
-    "terminal.integrated.fontSize": 10,
-    "editor.fontLigatures": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.fontLigatures": true,
-    "terminal.integrated.fontFamily": "Fira Code, Hack, Meslo LG M DZ for Powerline",
-    "workbench.colorCustomizations": {
-        "statusBar.noFolderBackground": "#333333",
-        "statusBar.debuggingBackground": "#333333",
-        "statusBar.background": "#333333",
-        "statusBar.foreground": "#9c9c9c",
-        "editor.background": "#2d2d2d",
-        "editor.selectionHighlightBackground": "#ede48033",
-        "editor.selectionBackground": "#ede48066"
+  "editor.fontSize": 11.5,
+  "workbench.colorTheme": "Gloom",
+  "editor.fontFamily": "JetBrains Mono, Operator Mono SSm, SF Mono, Fira Code, Hasklig, Hack, Meslo LG M DZ for Powerline",
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "solid",
+  "terminal.integrated.fontSize": 12,
+  "editor.fontLigatures": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontFamily": "JetBrains Mono, SF Mono, Hack, Meslo LG M DZ for Powerline",
+  "workbench.tree.indent": 14,
+  "workbench.colorCustomizations": {
+    "[Predawn]": {
+      "editor.background": "#282c36",
+      "terminal.background": "#282c36",
+      "sideBar.background": "#232831",
+      "input.background": "#1c1f27",
+      "tab.activeBackground": "#2b303b",
+      "tab.inactiveBackground": "#232831",
+      "tab.hoverBackground": "#2b303b",
+      "activityBar.background": "#1c1f27",
+      "editorCursor.foreground": "#c5c5c5",
+      "editorCursor.background": "#1c1f27"
     },
-    "editor.autoClosingBrackets": false,
-    "window.zoomLevel": 0,
-    "typescript.check.npmIsInstalled": false,
-    "files.associations": {
-		"*.ml": "ocaml",
-		"*.mli": "ocaml",
-        "*.mll": "ocaml"
+    "[Kary Pro Colors － Light]": {
+      "editor.background": "#fbfbf9",
+      "editor.lineHighlightBorder": "#00000000",
+      "sideBar.background": "#fcfcfc",
+      "tab.hoverBackground": "#fcfcfc",
+      "tab.activeBackground": "#fcfcfc",
+      "tab.activeForeground": "#11110f",
+      "tab.activeBorder": "#241719",
+      "editor.wordHighlightBackground": "#dfdfdf6b",
+      "editor.wordHighlightStrongBackground": "#b6b6b66b",
+      "statusBar.noFolderBackground": "#eee",
+      "statusBar.debuggingBackground": "#eee",
+      "statusBar.background": "#11110fe0",
+      "statusBar.foreground": "#e7e7e7",
+      "terminal.background": "#ffffff",
+      "terminal.foreground": "#1f1f1f",
+      "editorCursor.background": "#f2f2f2",
+      "editorCursor.foreground": "#f76ec9",
+      "editor.selectionBackground": "#66c2ff3f",
+      "editor.findMatchHighlightBackground": "#67eb5255",
+      "scrollbarSlider.background": "#adabaa55",
+      "scrollbarSlider.hoverBackground": "#adabaa77",
+      "scrollbarSlider.activeBackground": "#adabaa99",
+      "terminalCursor.foreground": "#a5a5a5aa"
     },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/*.pyc": true,
-        "**/.DS_Store": true
+    "statusBar.background": "#4eeea3",
+    "statusBar.noFolderBackground": "#4eeea3",
+    "statusBar.debuggingBackground": "#4eeea3",
+    "statusBar.foreground": "#333333"
+  },
+  "editor.tokenColorCustomizations": {
+    "[Focus Dark]": {
+      "comments": "#575d64",
+      "keywords": "#575d64",
+      "numbers": "#ffd580",
+      "functions": "#4eeea3",
+      "textMateRules": [
+        // @TESTING
+        {
+          "scope": ["entity.name.tag.js"],
+          "settings": {
+            "foreground": "#f00"
+          }
+        },
+        {
+          "name": "Important genearl tokens that matter",
+          "scope": [
+            "support.constant",
+            "support.class",
+            "variable",
+            "source.ocaml",
+            "meta.paren-group.ocaml",
+            "support.other.module.ocaml",
+            "meta.module.structure.ocaml",
+            "meta.record.ocaml",
+            "entity.name.tag.js"
+          ],
+          "settings": {
+            "foreground": "#E0E0E0"
+          }
+        },
+        {
+          "name": "Special tokens that matter",
+          "scope": [
+            "storage.type.class.jsdoc",
+            "punctuation.definition.block.tag.jsdoc",
+            "meta.module-reference.ocaml",
+            "constant.language.variant.ocaml"
+          ],
+          "settings": {
+            "foreground": "#4eeea3"
+          }
+        },
+        {
+          "name": "Tokens that we want to know about but not emphisize",
+          "scope": [
+            "entity.other.attribute-name",
+            "string.quoted.single",
+            "string.quoted.double",
+            "string.template",
+            "punctuation.definition.string",
+            "support.variable.property",
+            "constant.character.string.escape.ocaml"
+          ],
+          "settings": {
+            "foreground": "#9aa8b3"
+          }
+        },
+        {
+          "name": "Value tokens",
+          "scope": [
+            "constant.language.boolean",
+            "constant.language.infinity",
+            "keyword.other.storage.modifier.ocaml"
+          ],
+          "settings": {
+            "foreground": "#ffd580"
+          }
+        },
+        {
+          "name": "Grayed-out tokens",
+          "scope": [
+            "keyword.other.ocaml",
+            "keyword.operator.arithmetic",
+            "keyword.control.flow",
+            "meta.object-literal",
+            "entity.name.type",
+            "constant.language.undefined",
+            "constant.language.null",
+            "meta.function",
+            "keyword.operator",
+            "punctuation.definition.string",
+            "punctuation.definition",
+            "meta.brace.square",
+            "meta.brace.round",
+            "meta.brace.square",
+            "punctuation.terminator.statement",
+            "meta.brace.round"
+          ],
+          "settings": {
+            "foreground": "#575d64"
+          }
+        },
+        {
+          "name": "Types",
+          "scope": ["storage.type.ocaml", "support.type"],
+          "settings": {
+            "foreground": "#717981"
+          }
+        }
+      ]
     },
-    "python.linting.enabledWithoutWorkspace": false,
-    "editor.minimap.enabled": false,
-    "editor.cursorStyle": "block",
-    "editor.cursorBlinking": "blink",
-    "ocaml.merlinPath": "/Users/nick/.opam/system/bin/ocamlmerlin",
-    "reason.formatOnSave": true,
-    "reason.bsb.enabled": true,
-    "editor.tabSize": 2,
-    "importCost.smallPackageSize": 100,
-    "ocaml.replPath.unix": "utop",
-    "ocaml.lintOnSave": true,
-    "extensions.ignoreRecommendations": false,
-    "workbench.iconTheme": "vs-minimal"
+    "[Kary Pro Colors － Light]": {
+      "variables": "#11110f",
+      "functions": "#11110f",
+      "comments": "#afafaf",
+      "keywords": "#42575c",
+      "numbers": "#a01c74",
+      "strings": "#306d4f",
+      "textMateRules": [
+        {
+          "scope": [
+            "meta.definition.function",
+            "keyword.other.funtion-definition",
+            "keyword.other.function-definition",
+            // "constant.language.variant"
+            "entity.name.type.module"
+          ],
+          "settings": {
+            "foreground": "#11110f",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": [
+            "meta.function-call",
+            "variable.other.object",
+            "variable.other.constant",
+            "variable.parameter",
+            "support.class.component",
+            "keyword.other",
+            "entity.name.tag"
+          ],
+          "settings": {
+            "foreground": "#11110f",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "keyword.control.default",
+            "storage.type.function",
+            "meta.module.openbinding",
+            "punctuation.definition.tag.begin",
+            "punctuation.definition.tag.end",
+            "meta.object-literal.key"
+          ],
+          "settings": {
+            "foreground": "#42575c",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": ["meta.var.expr keyword.control.export", "keyword.control.export"],
+          "settings": {
+            "foreground": "#89715c",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "keyword.operator.assignment",
+            "punctuation.definition.parameters",
+            "punctuation.definition.block",
+            "punctuation.definition.template-expression.begin",
+            "punctuation.definition.template-expression.end",
+            "punctuation.definition.string.template.begin",
+            "punctuation.definition.string.template.end"
+          ],
+          "settings": {
+            "foreground": "#908f97",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": ["keyword.control", "constant.language.variant", "keyword.operator.infix"],
+          "settings": {
+            "foreground": "#534fa3",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": ["constant.character.string.escape"],
+          "settings": {
+            "foreground": "#a01c74",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.string.begin",
+            "punctuation.definition.string.end"
+          ],
+          "settings": {
+            "foreground": "#306d4f",
+            "fontStyle": ""
+          }
+        }
+      ]
+    }
+  },
+  "typescript.check.npmIsInstalled": false,
+  "files.associations": {
+    "*.ml": "ocaml",
+    "*.mli": "ocaml",
+    "*.mll": "ocaml"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/*.pyc": true,
+    "**/.DS_Store": true,
+    "**/*.{vo,v.d,glob,aux,bak}": true
+  },
+  "ocaml.merlinPath": "/Users/nick/.opam/4.08.0/bin/ocamlmerlin",
+  "ocaml.ocpIndentPath": "/Users/nick/.opam/4.08.0/bin/ocp-indent",
+  "editor.tabSize": 2,
+  "importCost.smallPackageSize": 100,
+  "ocaml.replPath.unix": "utop",
+  "ocaml.lintOnSave": true,
+  "extensions.ignoreRecommendations": false,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.codeLens": false,
+  "cSpell.ignoreRegExpList": ["\\\\\\w*(\\[.*?\\])?(\\{.*?\\})?", "\\$.+?\\$"],
+  "cSpell.enabledLanguageIds": ["latex"],
+  "[c]": {
+    "editor.formatOnSave": false
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderIndentGuides": false,
+  "workbench.activityBar.visible": true,
+  "[markdown]": {
+    "editor.quickSuggestions": true
+  },
+  "latex-workshop.view.pdf.viewer": "tab",
+  "cSpell.userWords": ["Caml"],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.gitExplorer.location": "explorer",
+  "editor.rulers": [80],
+  "latex-workshop.message.update.show": false,
+  "editor.autoClosingQuotes": "never",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoSurround": "never",
+  "workbench.editor.labelFormat": "medium",
+  "workbench.startupEditor": "none",
+  "html.autoClosingTags": false,
+  "javascript.autoClosingTags": false,
+  "typescript.autoClosingTags": false,
+  "gitlens.views.repositories.location": "explorer",
+  "breadcrumbs.enabled": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.insertFinalNewline": true,
+  "[ocaml]": {
+    "editor.defaultFormatter": "hackwaly.ocaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "prettier.trailingComma": "all",
+  "workbench.iconTheme": null,
+  "prettier.printWidth": 95,
+  "editor.detectIndentation": false,
+  "security.workspace.trust.untrustedFiles": "open"
 }
